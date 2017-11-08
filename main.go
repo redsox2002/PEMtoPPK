@@ -1,7 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"os"
+	"os/exec"
 	"sort"
 	"time"
 
@@ -27,13 +29,24 @@ func main() {
 			Usage:   "convert a pem file",
 			Flags: []cli.Flag{
 				cli.StringFlag{
-					Name:   "key, k",
-					Usage:  "Specify name of pem key from `FILE`",
-					EnvVar: "KEY_NAME",
+					Name:  "pem",
+					Usage: "Specify the source of the pem key from `FILE`",
+				},
+				cli.StringFlag{
+					Name:  "ppk",
+					Usage: "Specify the destination of where you want to save ppk from `FILE`",
 				},
 			},
 			Action: func(c *cli.Context) error {
-				//Code goes here
+				pemKeyName := c.String("pem")
+				ppkKeyName := c.String("ppk")
+				fmt.Println(pemKeyName)
+				fmt.Println(ppkKeyName)
+				cmd := exec.Command("puttygen", pemKeyName, "-O", "private", "-o", ppkKeyName)
+				cmd.Stdout = os.Stdout
+				cmd.Stderr = os.Stderr
+
+				cmd.Run()
 				return nil
 			},
 		},
