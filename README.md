@@ -5,7 +5,7 @@ When you create a key pair in AWS and download it to SSH into a server, it will 
 
 ### Prerequisites:
 
-- Install puttygen via Homebrew on Mac `brew install putty`
+- Install puttygen via Homebrew on Mac `brew install putty`, on Windows PC's PuTTYgen is installed when you install PuTTY
 - Download the Go binary for your system here: https://golang.org/dl/.
 - Follow the [installation instructions](https://golang.org/doc/install) for your system.
 - Install `cli` by running `go get github.com/urfave/cli`
