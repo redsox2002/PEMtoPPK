@@ -12,6 +12,7 @@ When you create a key pair in AWS and download it to SSH into a server, it will 
 
 ### Usage:
 
-1. Run `go run main.go convert --pem /path/to/pem --ppk /path/to/save/ppk`
+1. Build the main package by running `go build main.go`
+2. Run `./main.go convert --pem /path/to/pem --ppk /path/to/save/ppk`
   - `/path/to/pem` is where you have saved your `.pem` key
   - `/path/to/save/ppk` is where you want to save your `.ppk` key
